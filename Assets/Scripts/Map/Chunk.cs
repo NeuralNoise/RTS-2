@@ -114,7 +114,8 @@ public class Chunk : MonoBehaviour
                             {
                                 type = 16;
                             }
-                            GameObject bloc = Instantiate(ResourcesWrapper.LoadBlocs(blocs[x, y, z], type), transform) as GameObject;
+                            GameObject blocToInstantiate = ResourcesWrapper.LoadBlocs(blocs[x, y, z], type);
+                            GameObject bloc = Instantiate(blocToInstantiate, transform) as GameObject;
                             bloc.transform.localPosition = new Vector3(x-1, y-1, z-1);
                         }
                     }
@@ -122,22 +123,5 @@ public class Chunk : MonoBehaviour
             }
         }
         GetComponent<CombineMesh>().CombineChildMeshes();
-    }
-
-    void Start()
-    {
-        // TEST
-        int[,,] blocs = new int[16,16,16];
-        for (int x = 0; x < blocs.GetLength(0); x++)
-        {
-            for (int y = 0; y < blocs.GetLength(1); y++)
-            {
-                for (int z = 0; z < blocs.GetLength(2); z++)
-                {
-                    blocs[x, y, z] = Random.Range(1, 2);
-                }
-            }
-        }
-        Generate(blocs);
     }
 }

@@ -2,36 +2,55 @@
 
 public static class ResourcesWrapper
 {
+    static GameObject GrassTop = Resources.Load("Blocs/GrassTop") as GameObject;
+    static GameObject GrassLeft = Resources.Load("Blocs/GrassLeft") as GameObject;
+    static GameObject GrassRight = Resources.Load("Blocs/GrassRight") as GameObject;
+    static GameObject GrassFront = Resources.Load("Blocs/GrassFront") as GameObject;
+    static GameObject GrassBack = Resources.Load("Blocs/GrassBack") as GameObject;
+    static GameObject GrassTopLeft = Resources.Load("Blocs/GrassTopLeft") as GameObject;
+    static GameObject GrassTopRight = Resources.Load("Blocs/GrassTopRight") as GameObject;
+    static GameObject GrassTopFront = Resources.Load("Blocs/GrassTopFront") as GameObject;
+    static GameObject GrassTopBack = Resources.Load("Blocs/GrassTopBack") as GameObject;
+    static GameObject GrassLeftFront = Resources.Load("Blocs/GrassLeftFront") as GameObject;
+    static GameObject GrassLeftBack = Resources.Load("Blocs/GrassLeftBack") as GameObject;
+    static GameObject GrassRightFront = Resources.Load("Blocs/GrassRightFront") as GameObject;
+    static GameObject GrassRightBack = Resources.Load("Blocs/GrassRightBack") as GameObject;
+    static GameObject GrassTopLeftFront = Resources.Load("Blocs/GrassTopLeftFront") as GameObject;
+    static GameObject GrassTopLeftBack = Resources.Load("Blocs/GrassTopLeftBack") as GameObject;
+    static GameObject GrassTopRightFront = Resources.Load("Blocs/GrassTopRightFront") as GameObject;
+    static GameObject GrassTopRightBack = Resources.Load("Blocs/GrassTopRightBack") as GameObject;
+
+
+
     public static GameObject LoadBlocs(int bloc, int type)
     {
-        GameObject result = null;
-        string firstPart = string.Empty;
-        string secondPart = string.Empty;
-        switch(bloc)
+        if(bloc == 1)
         {
-            case 1: firstPart = "Blocs/Grass" ; break;
-            default: return result;
+            switch(type)
+            {
+                case 0: return GrassTop;
+                case 1: return GrassLeft;
+                case 2: return GrassRight;
+                case 3: return GrassFront;
+                case 4: return GrassBack;
+                case 5: return GrassTopLeft;
+                case 6: return GrassTopRight; 
+                case 7: return GrassTopFront;
+                case 8: return GrassTopBack;
+                case 9: return GrassLeftFront;
+                case 10: return GrassLeftBack;
+                case 11: return GrassRightFront;
+                case 12: return GrassRightBack;
+                case 13: return GrassTopLeftFront;
+                case 14: return GrassTopLeftBack;
+                case 15: return GrassTopRightFront;
+                case 16: return GrassTopRightBack;
+                default: return null;
+            }
         }
-        switch(type)
+        else
         {
-            case 0: secondPart = "Top"; break;
-            case 1: secondPart = "Left"; break;
-            case 2: secondPart = "Right"; break;
-            case 3: secondPart = "Front"; break;
-            case 4: secondPart = "Back"; break;
-            case 5: secondPart = "TopLeft"; break;
-            case 6: secondPart = "TopRight"; break;
-            case 7: secondPart = "TopFront"; break;
-            case 8: secondPart = "TopBack"; break;
-            case 9: secondPart = "LeftFront"; break;
-            case 10: secondPart = "LeftBack"; break;
-            case 11: secondPart = "RightFront"; break;
-            case 12: secondPart = "RightBack"; break;
-            case 13: secondPart = "TopLeftFront"; break;
-            case 14: secondPart = "TopLeftBack"; break;
-            case 15: secondPart = "TopRightFront"; break;
-            case 16: secondPart = "TopRightBack"; break;
+            return null;
         }
-        return Resources.Load(firstPart + secondPart) as GameObject;
     }
 }
